@@ -1,0 +1,3 @@
+[submodule "raptorq"]
+	path = raptorq
+	url = git@github.com:ekmett/raptorq.git
