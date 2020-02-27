@@ -120,7 +120,7 @@ impl Receiver {
     }
     let (meta,packet): (Meta,EncodingPacket) = serde_cbor::from_slice(&pm).expect("valid data"); // .ok()?;
     if !self.decoders.contains_key(&meta) {
-      println!("Starting {} ({} bytes):",meta.filename.clone(),meta.oti.transfer_length);
+      println!("Starting {} ({} bytes):",meta.filename.clone(),meta.oti.transfer_length());
       self.decoders.insert(meta.clone(),Some(Decoder::new(meta.oti.clone())));
     }
     let slot = self.decoders.entry(meta.clone()).or_insert_with(|| Some(Decoder::new(meta.oti.clone())));
